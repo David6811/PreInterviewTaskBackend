@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://128.199.0.73:3306/preinterview?useUnicode=true&characterEncoding=utf-8
+    password: c7c55d02-46ae-4c9d-9d56-df3c9c3cf607
+    username: usedcarsales
+    jpa:
+      hibernate:
+        ddl-auto: none
