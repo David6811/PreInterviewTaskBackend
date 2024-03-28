@@ -59,6 +59,13 @@
       <artifactId>h2</artifactId>
     </dependency>
 
+    <!--mysql-->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>5.1.49</version>
+    </dependency>
+
     <!-- JPA -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
