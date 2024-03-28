@@ -2,6 +2,7 @@ package org.example;
 
 import static com.google.common.truth.Truth.assertThat;
 
+import java.util.List;
 import org.example.entity.UsedCarSales;
 import org.example.repository.UsedCarSalesRepository;
 import org.junit.Test;
@@ -17,12 +18,20 @@ import org.springframework.test.context.junit4.SpringRunner;
     webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @EnableAutoConfiguration
 public class MySQLTest {
-  @Autowired private UsedCarSalesRepository usedCarSalesRepository;
+
+  @Autowired
+  private UsedCarSalesRepository usedCarSalesRepository;
   private static final String id = "1";
 
   @Test
-  public void case_0_JPA_providedMake_shouldReturnSameCorrectUsedCarSales() {
-    UsedCarSales usedCarSales = usedCarSalesRepository.findByMake("Toyota");
-    assertThat(id).isEqualTo(usedCarSales.getId());
+  public void case_0_JPA_providedMake_shouldReturnCorrectUsedCarSales() {
+    List<UsedCarSales> usedCarSales = usedCarSalesRepository.findByMake("Toyota");
+    assertThat(id).isEqualTo(usedCarSales.get(0).getId());
+  }
+
+  @Test
+  public void case_0_JPA_providedParameters_shouldReturnCorrectUsedCarSales() {
+    List<UsedCarSales> usedCarSales = usedCarSalesRepository.findByParameter("Toyota", "", null, null);
+    assertThat(id).isEqualTo(usedCarSales.get(0).getId());
   }
 }

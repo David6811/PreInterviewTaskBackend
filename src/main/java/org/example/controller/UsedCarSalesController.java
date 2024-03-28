@@ -1,13 +1,27 @@
 package org.example.controller;
 
+import java.util.List;
+import org.example.entity.UsedCarSales;
+import org.example.sevice.UsedCarSalesService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/car")
 public class UsedCarSalesController {
 
-  @GetMapping("/car")
-  public String home() {
-    return "car";
+  @Autowired
+  public UsedCarSalesService usedCarSalesService;
+
+  @GetMapping
+  public List<UsedCarSales> getCars(
+      @RequestParam(required = false) String maker,
+      @RequestParam(required = false) String model,
+      @RequestParam(required = false) Integer year) {
+
+    return usedCarSalesService.findByParameter(maker, model, year, null);
   }
 }
