@@ -4,6 +4,7 @@ import static com.google.common.truth.Truth.assertThat;
 
 import java.util.List;
 import org.example.entity.UsedCarSales;
+import org.example.model.CarSearchParameters;
 import org.example.repository.UsedCarSalesRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -31,7 +32,10 @@ public class MySQLTest {
 
   @Test
   public void case_0_JPA_providedParameters_shouldReturnCorrectUsedCarSales() {
-    List<UsedCarSales> usedCarSales = usedCarSalesRepository.findByParameter("Toyota", "", null, null);
+    CarSearchParameters carSearchParameters =new CarSearchParameters();
+    carSearchParameters.setMaker("Audi");
+    carSearchParameters.setModel("A5");
+    List<UsedCarSales> usedCarSales = usedCarSalesRepository.findByParameter(carSearchParameters);
     assertThat(id).isEqualTo(usedCarSales.get(0).getId());
   }
 }
