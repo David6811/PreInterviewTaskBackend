@@ -30,86 +30,39 @@ public class CarSearchParametersUtil {
             StringUtils.hasText(year) && !"Year".equals(year) ? splitStringIntoRange(year).getEnd() : null);
       }
     }
-  }
 
     parameters.setOdometerFrom(
-        StringUtils.hasText(odometer)&&!"Odometer".
-
-  equals(odometer) ?
-
-  splitOdometerIntoRange(odometer).
-
-  getStart()
-            :null);
+        StringUtils.hasText(odometer) && !"Odometer".equals(odometer) ? splitOdometerIntoRange(odometer).getStart()
+            : null);
     parameters.setOdometerTo(
-        StringUtils.hasText(odometer)&&!"Odometer".
+        StringUtils.hasText(odometer) && !"Odometer".equals(odometer) ? splitOdometerIntoRange(odometer).getEnd()
+            : null);
 
-  equals(odometer) ?
-
-  splitOdometerIntoRange(odometer).
-
-  getEnd()
-            :null);
-
-    parameters.setVehicleCondition(!"AllCarConditions".
-
-  equals(vehicleCondition) ?vehicleCondition :null);
-    parameters.setStates(!"States".
-
-  equals(states) ?states :null);
+    parameters.setVehicleCondition(!"AllCarConditions".equals(vehicleCondition) ? vehicleCondition : null);
+    parameters.setStates(!"States".equals(states) ? states : null);
     parameters.setCustomDate(
-        StringUtils.hasText(customDate)&&!"Custom Date".
-
-  equals(customDate) ?
-
-  getDateFromCustomDate(customDate)
-            :null);
-    parameters.setSaleCategory(!"Sale Category".
-
-  equals(saleCategory) ?saleCategory :null);
-    parameters.setBadges(!"Badges".
-
-  equals(badges) ?badges :null);
-    parameters.setBodyType(!"Body Type".
-
-  equals(bodyType) ?bodyType :null);
-    parameters.setBodyTypeConfig(!"Body Type Config".
-
-  equals(bodyTypeConfig) ?bodyTypeConfig :null);
-    parameters.setFuelType(!"Fuel Type".
-
-  equals(fuelType) ?fuelType :null);
-    parameters.setTransmission(!"Transmission".
-
-  equals(transmission) ?transmission :null);
-    parameters.setEngine(!"Engine".
-
-  equals(engine) ?engine :null);
+        StringUtils.hasText(customDate) && !"Custom Date".equals(customDate) ? getDateFromCustomDate(customDate)
+            : null);
+    parameters.setSaleCategory(!"Sale Category".equals(saleCategory) ? saleCategory : null);
+    parameters.setBadges(!"Badges".equals(badges) ? badges : null);
+    parameters.setBodyType(!"Body Type".equals(bodyType) ? bodyType : null);
+    parameters.setBodyTypeConfig(!"Body Type Config".equals(bodyTypeConfig) ? bodyTypeConfig : null);
+    parameters.setFuelType(!"Fuel Type".equals(fuelType) ? fuelType : null);
+    parameters.setTransmission(!"Transmission".equals(transmission) ? transmission : null);
+    parameters.setEngine(!"Engine".equals(engine) ? engine : null);
     parameters.setCylinders(
-        StringUtils.hasText(cylinders)&&!"Cylinders".
-
-  equals(cylinders) ?Integer.parseInt(cylinders):null);
-    parameters.setDivision(!"Division".
-
-  equals(division) ?division :null);
-    parameters.setDrive(!"Drive".
-
-  equals(drive) ?drive :null);
-    parameters.setSeat(StringUtils.hasText(seat)&&!"Seat".
-
-  equals(seat) ?Integer.parseInt(seat):null);
-    parameters.setDoors(StringUtils.hasText(doors)&&!"Doors".
-
-  equals(doors) ?Integer.parseInt(doors):null);
+        StringUtils.hasText(cylinders) && !"Cylinders".equals(cylinders) ? Integer.parseInt(cylinders) : null);
+    parameters.setDivision(!"Division".equals(division) ? division : null);
+    parameters.setDrive(!"Drive".equals(drive) ? drive : null);
+    parameters.setSeat(StringUtils.hasText(seat) && !"Seat".equals(seat) ? Integer.parseInt(seat) : null);
+    parameters.setDoors(StringUtils.hasText(doors) && !"Doors".equals(doors) ? Integer.parseInt(doors) : null);
     parameters.setDescription(description);
-    parameters.setSort(StringUtils.hasText(sort)?
-
-  getPropertyFromSortString(sort) :null);
+    parameters.setSort(StringUtils.hasText(sort) ? getPropertyFromSortString(sort) : null);
 
     parameters.setAsc(asc);
 
     return parameters;
-}
+  }
 
   public static Range splitStringIntoRange(String input) {
     String[] parts = input.split("\\s*-\\s*");
@@ -124,24 +77,24 @@ public class CarSearchParametersUtil {
 
   }
 
-public static class Range {
+  public static class Range {
 
-  private int start;
-  private int end;
+    private int start;
+    private int end;
 
-  public Range(int start, int end) {
-    this.start = start;
-    this.end = end;
+    public Range(int start, int end) {
+      this.start = start;
+      this.end = end;
+    }
+
+    public int getStart() {
+      return start;
+    }
+
+    public int getEnd() {
+      return end;
+    }
   }
-
-  public int getStart() {
-    return start;
-  }
-
-  public int getEnd() {
-    return end;
-  }
-}
 
   public static DistanceRange splitOdometerIntoRange(String input) {
     String[] parts = input.split("\\s*-\\s*");
@@ -156,25 +109,24 @@ public static class Range {
     return Integer.parseInt(distanceStr);
   }
 
-public static class DistanceRange {
+  public static class DistanceRange {
 
-  private int start;
-  private int end;
+    private int start;
+    private int end;
 
-  public DistanceRange(int start, int end) {
-    this.start = start;
-    this.end = end;
+    public DistanceRange(int start, int end) {
+      this.start = start;
+      this.end = end;
+    }
+
+    public int getStart() {
+      return start;
+    }
+
+    public int getEnd() {
+      return end;
+    }
   }
-
-  public int getStart() {
-    return start;
-  }
-
-  public int getEnd() {
-    return end;
-  }
-
-}
 
 
   public static Date getDateFromCustomDate(String input) {
