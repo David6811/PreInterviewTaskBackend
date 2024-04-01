@@ -16,10 +16,15 @@ public class CarSearchParametersUtil {
     parameters.setMaker(maker);
     parameters.setModel(!"Family".equals(model) ? model : null);
 
-    parameters.setYearFrom(
-        StringUtils.hasText(year) && !"Year".equals(year) ? splitStringIntoRange(year).getStart() : null);
-    parameters.setYearTo(
-        StringUtils.hasText(year) && !"Year".equals(year) ? splitStringIntoRange(year).getEnd() : null);
+    if (splitStringIntoRange(year) == null) {
+      parameters.setYear(Integer.parseInt(year));
+    } else {
+      parameters.setYearFrom(
+          StringUtils.hasText(year) && !"Year".equals(year) ? splitStringIntoRange(year).getStart() : null);
+      parameters.setYearTo(
+          StringUtils.hasText(year) && !"Year".equals(year) ? splitStringIntoRange(year).getEnd() : null);
+    }
+
     parameters.setOdometerFrom(
         StringUtils.hasText(odometer) && !"Odometer".equals(odometer) ? splitOdometerIntoRange(odometer).getStart()
             : null);
@@ -55,9 +60,15 @@ public class CarSearchParametersUtil {
 
   public static Range splitStringIntoRange(String input) {
     String[] parts = input.split("\\s*-\\s*");
-    int start = Integer.parseInt(parts[0]);
-    int end = Integer.parseInt(parts[1]);
-    return new Range(start, end);
+    if (parts.length == 1) {
+      return null;
+    } else {
+      int start = Integer.parseInt(parts[0]);
+      int end = Integer.parseInt(parts[1]);
+      return new Range(start, end);
+    }
+
+
   }
 
   public static class Range {
