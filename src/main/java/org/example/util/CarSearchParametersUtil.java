@@ -30,7 +30,6 @@ public class CarSearchParametersUtil {
             StringUtils.hasText(year) && !"Year".equals(year) ? splitStringIntoRange(year).getEnd() : null);
       }
     }
-  }
 
     parameters.setOdometerFrom(
         StringUtils.hasText(odometer)&&!"Odometer".
