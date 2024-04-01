@@ -73,6 +73,8 @@ public class UsedCarSalesController {
         badges, bodyType, bodyTypeConfig, fuelType, transmission, engine, cylinders, division,
         drive, seat, doors, description, sort, asc);
 
+    System.out.println(carSearchParameters);
+
     return usedCarSalesService.findByParameter(carSearchParameters);
   }
 }

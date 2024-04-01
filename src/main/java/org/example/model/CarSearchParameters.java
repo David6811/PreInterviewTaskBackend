@@ -219,5 +219,35 @@ public class CarSearchParameters {
   public void setAsc(String asc) {
     this.asc = asc;
   }
+
+  @Override
+  public String toString() {
+    return "CarSearchParameters{" +
+        "maker='" + maker + '\'' +
+        ", model='" + model + '\'' +
+        ", yearFrom=" + yearFrom +
+        ", yearTo=" + yearTo +
+        ", odometerFrom=" + odometerFrom +
+        ", odometerTo=" + odometerTo +
+        ", vehicleCondition='" + vehicleCondition + '\'' +
+        ", states='" + states + '\'' +
+        ", customDate=" + customDate +
+        ", saleCategory='" + saleCategory + '\'' +
+        ", badges='" + badges + '\'' +
+        ", bodyType='" + bodyType + '\'' +
+        ", bodyTypeConfig='" + bodyTypeConfig + '\'' +
+        ", fuelType='" + fuelType + '\'' +
+        ", transmission='" + transmission + '\'' +
+        ", engine='" + engine + '\'' +
+        ", cylinders=" + cylinders +
+        ", division='" + division + '\'' +
+        ", drive='" + drive + '\'' +
+        ", seat=" + seat +
+        ", doors=" + doors +
+        ", description='" + description + '\'' +
+        ", sort='" + sort + '\'' +
+        ", asc='" + asc + '\'' +
+        '}';
+  }
 }
 

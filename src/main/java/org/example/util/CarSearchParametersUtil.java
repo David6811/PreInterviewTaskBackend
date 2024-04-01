@@ -14,28 +14,37 @@ public class CarSearchParametersUtil {
 
     CarSearchParameters parameters = new CarSearchParameters();
     parameters.setMaker(maker);
-    parameters.setModel(model);
+    parameters.setModel(!"Family".equals(model) ? model : null);
 
-    parameters.setYearFrom(StringUtils.hasText(year) ? splitStringIntoRange(year).getStart() : null);
-    parameters.setYearTo(StringUtils.hasText(year) ? splitStringIntoRange(year).getEnd() : null);
-    parameters.setOdometerFrom(StringUtils.hasText(odometer) ? splitOdometerIntoRange(odometer).getStart() : null);
-    parameters.setOdometerTo(StringUtils.hasText(odometer) ? splitOdometerIntoRange(odometer).getEnd() : null);
+    parameters.setYearFrom(
+        StringUtils.hasText(year) && !"Year".equals(year) ? splitStringIntoRange(year).getStart() : null);
+    parameters.setYearTo(
+        StringUtils.hasText(year) && !"Year".equals(year) ? splitStringIntoRange(year).getEnd() : null);
+    parameters.setOdometerFrom(
+        StringUtils.hasText(odometer) && !"Odometer".equals(odometer) ? splitOdometerIntoRange(odometer).getStart()
+            : null);
+    parameters.setOdometerTo(
+        StringUtils.hasText(odometer) && !"Odometer".equals(odometer) ? splitOdometerIntoRange(odometer).getEnd()
+            : null);
 
-    parameters.setVehicleCondition(vehicleCondition);
-    parameters.setStates(states);
-    parameters.setCustomDate(StringUtils.hasText(customDate) ? getDateFromCustomDate(customDate) : null);
-    parameters.setSaleCategory(saleCategory);
-    parameters.setBadges(badges);
-    parameters.setBodyType(bodyType);
-    parameters.setBodyTypeConfig(bodyTypeConfig);
-    parameters.setFuelType(fuelType);
-    parameters.setTransmission(transmission);
-    parameters.setEngine(engine);
-    parameters.setCylinders(StringUtils.hasText(cylinders) ? Integer.parseInt(cylinders) : null);
-    parameters.setDivision(division);
-    parameters.setDrive(drive);
-    parameters.setSeat(StringUtils.hasText(seat) ? Integer.parseInt(seat) : null);
-    parameters.setDoors(StringUtils.hasText(doors) ? Integer.parseInt(doors) : null);
+    parameters.setVehicleCondition(!"AllCarConditions".equals(vehicleCondition) ? vehicleCondition : null);
+    parameters.setStates(!"States".equals(states) ? states : null);
+    parameters.setCustomDate(
+        StringUtils.hasText(customDate) && !"Custom Date".equals(customDate) ? getDateFromCustomDate(customDate)
+            : null);
+    parameters.setSaleCategory(!"Sale Category".equals(saleCategory) ? saleCategory : null);
+    parameters.setBadges(!"Badges".equals(badges) ? badges : null);
+    parameters.setBodyType(!"Body Type".equals(bodyType) ? bodyType : null);
+    parameters.setBodyTypeConfig(!"Body Type Config".equals(bodyTypeConfig) ? bodyTypeConfig : null);
+    parameters.setFuelType(!"Fuel Type".equals(fuelType) ? fuelType : null);
+    parameters.setTransmission(!"Transmission".equals(transmission) ? transmission : null);
+    parameters.setEngine(!"Engine".equals(engine) ? engine : null);
+    parameters.setCylinders(
+        StringUtils.hasText(cylinders) && !"Cylinders".equals(cylinders) ? Integer.parseInt(cylinders) : null);
+    parameters.setDivision(!"Division".equals(division) ? division : null);
+    parameters.setDrive(!"Drive".equals(drive) ? drive : null);
+    parameters.setSeat(StringUtils.hasText(seat) && !"Seat".equals(seat) ? Integer.parseInt(seat) : null);
+    parameters.setDoors(StringUtils.hasText(doors) && !"Doors".equals(doors) ? Integer.parseInt(doors) : null);
     parameters.setDescription(description);
     parameters.setSort(StringUtils.hasText(sort) ? getPropertyFromSortString(sort) : null);
 
