@@ -16,7 +16,7 @@ public class CarSearchParametersUtil {
     parameters.setMaker(maker);
     parameters.setModel(!"Family".equals(model) ? model : null);
 
-    if (year == null || !StringUtils.hasText(year)|| (year.toLowerCase().equals(year))) {
+    if (year == null || "".equals(year)|| "Year".equals(year) || "year".equals(year)) {
       parameters.setYear(null);
       parameters.setYearFrom(null);
       parameters.setYearTo(null);
