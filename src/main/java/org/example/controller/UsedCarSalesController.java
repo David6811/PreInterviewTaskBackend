@@ -1,12 +1,12 @@
 package org.example.controller;
 
-import java.util.List;
-import org.example.entity.UsedCarSales;
 import org.example.model.CarSearchParameters;
+import org.example.model.Response;
+import org.example.model.ResponseMessage;
+import org.example.model.ResponseStatus;
 import org.example.sevice.UsedCarSalesService;
 import org.example.util.CarSearchParametersUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.StreamingHttpOutputMessage.Body;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +22,7 @@ public class UsedCarSalesController {
   public UsedCarSalesService usedCarSalesService;
 
   @GetMapping
-  public List<UsedCarSales> getCars(
+  public Response getCars(
       @RequestParam(required = false) String maker,
       @RequestParam(required = false) String model,
       @RequestParam(required = false) String year,
@@ -46,35 +46,20 @@ public class UsedCarSalesController {
       @RequestParam(required = false) String sort,
       @RequestParam(required = false) String asc) {
 
-    System.out.println("Maker: " + maker);
-    System.out.println("Model: " + model);
-    System.out.println("Year: " + year);
-    System.out.println("Odometer: " + odometer);
-    System.out.println("Vehicle Condition: " + vehicleCondition);
-    System.out.println("States: " + states);
-    System.out.println("Custom Date: " + customDate);
-    System.out.println("Sale Category: " + saleCategory);
-    System.out.println("Badges: " + badges);
-    System.out.println("Body Type: " + bodyType);
-    System.out.println("Body Type Config: " + bodyTypeConfig);
-    System.out.println("Fuel Type: " + fuelType);
-    System.out.println("Transmission: " + transmission);
-    System.out.println("Engine: " + engine);
-    System.out.println("Cylinders: " + cylinders);
-    System.out.println("Division: " + division);
-    System.out.println("Drive: " + drive);
-    System.out.println("Seat: " + seat);
-    System.out.println("Doors: " + doors);
-    System.out.println("Description: " + description);
-    System.out.println("Sort: " + sort);
-    System.out.println("Ascending: " + asc);
+    try {
+      CarSearchParameters carSearchParameters = CarSearchParametersUtil.AssembleCarSearchParameters(maker, model, year,
+          odometer, vehicleCondition, states, customDate, saleCategory,
+          badges, bodyType, bodyTypeConfig, fuelType, transmission, engine, cylinders, division,
+          drive, seat, doors, description, sort, asc);
 
-    CarSearchParameters carSearchParameters = CarSearchParametersUtil.AssembleCarSearchParameters(maker, model, year, odometer, vehicleCondition, states, customDate, saleCategory,
-        badges, bodyType, bodyTypeConfig, fuelType, transmission, engine, cylinders, division,
-        drive, seat, doors, description, sort, asc);
+      System.out.println(carSearchParameters);
 
-    System.out.println(carSearchParameters);
+      return new Response(ResponseStatus.SUCCESS, ResponseMessage.SUCCESS,
+          usedCarSalesService.findByParameter(carSearchParameters));
+    } catch (Exception e) {
+      e.printStackTrace();
+      return new Response(ResponseStatus.FAIL, ResponseMessage.ERROR, null);
+    }
 
-    return usedCarSalesService.findByParameter(carSearchParameters);
   }
 }
