@@ -28,3 +28,16 @@ VALUES ('6', 'Abarth', '124', 2018, '348 Series 1 Spider Roadster 2dr Man 6sp 1.
 -- Inserting record with ID 7
 INSERT INTO usedcarsales (id, make, model, year, description, odometer, vehiclecondition, salelocation, salecategory, salvagevehicle, saledate, saleprice, colour, engine, transmission, states, customdate)
 VALUES ('7', 'Abarth', '124', 2017, '348 Spider Roadster 2dr Man 6sp 1.4T', 32335, 'Average', 'Sunshine, Melbourne (VIC)', 'Auction', 'No', '2024-01-11', FLOOR(RAND() * (20000 - 10000 + 1)) + 10000, 'White', '1.4 Multi-Point Injection Turbo Petrol', '6 Spider Manual', 'VIC', 20240111);
+
+
+INSERT INTO usedcarsales (id, make, model, year, description, odometer, vehiclecondition, salelocation, salecategory, salvagevehicle, saledate, saleprice, colour, engine, transmission, accessories, states, customdate, badges, bodytype, bodytypeconfig, fueltype, cylinders, division, drive, seat, doors)
+VALUES
+('8', 'Audi', 'A5', 2020, 'F5 MY20 45 TFSI S line Coupe 2dr S tronic 7sp quattro 2.0T', 33679, 'Above Average', 'Parramatta (NSW)', 'Wholesale', 'No', '2023-11-02', RAND()*10000 + 10000, 'Grey', '2.0 Direct Injection Turbo Petrol', '7 45 TFSI S line Automatic', NULL, 'NSW', 3, NULL, NULL, NULL, 'Petrol', NULL, NULL, NULL, NULL, NULL),
+('9', 'Alfa Romeo', '147', 2001, 'MY02 Twin Spark Hatchback 5dr Man 5sp 2.0i', 104337, 'Above Average', 'Wentworthville (NSW)', 'Dealership', 'No', '2024-02-22', RAND()*10000 + 10000, 'Black', '2.0 Multi-Point Injection Aspirated Petrol', '5 Twin Spark Manual', NULL, 'NSW', 3, NULL, NULL, NULL, 'Petrol', NULL, NULL, NULL, NULL, NULL);
+
+
+INSERT INTO usedcarsales (id, make, model, year, description, odometer, vehiclecondition, salelocation, salecategory, salvagevehicle, saledate, saleprice, colour, engine, transmission, accessories, states, customdate, badges, bodytype, bodytypeconfig, fueltype, cylinders, division, drive, seat, doors)
+VALUES
+('10', 'Austin', 'Freeway', 1964, 'Sedan 6st 4dr Auto 3sp 2400', 81494, 'Above Average', 'Carrara (QLD)', 'Wholesale', 'No', '2023-06-30', RAND()*10000 + 10000, 'Cream', '2400 Carburettor Single Aspirated Petrol', '3 Automatic', NULL, 'QLD', 3, NULL, NULL, NULL, 'Petrol', NULL, NULL, NULL, NULL, NULL),
+('11', 'Bentley', 'Arnage', 2001, 'Le Mans Sedan 4dr Auto 4sp 6.75T', 187100, 'Excellent', 'Bowral (NSW)', 'Dealership', 'No', '2023-09-08', RAND()*10000 + 10000, NULL, '6.75 Multi-Point Injection Turbo Petrol', '4 Le Mans Automatic', NULL, 'NSW', 3, NULL, NULL, NULL, 'Petrol', NULL, NULL, NULL, NULL, NULL),
+('12', 'Bentley', 'Arnage', 2003, 'Series 2 R Red Label Sedan 4dr Auto 4sp 6.75TT', 43392, 'Average', 'Belmore, Sydney (NSW)', 'Auction', 'No', '2023-06-28', RAND()*10000 + 10000, 'Black', '6.75 Multi-Point Injection Turbo Petrol', '4 R Red Label Automatic', NULL, 'NSW', 3, NULL, NULL, NULL, 'Petrol', NULL, NULL, NULL, NULL, NULL);
