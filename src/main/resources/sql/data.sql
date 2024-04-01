@@ -41,3 +41,7 @@ VALUES
 ('10', 'Austin', 'Freeway', 1964, 'Sedan 6st 4dr Auto 3sp 2400', 81494, 'Above Average', 'Carrara (QLD)', 'Wholesale', 'No', '2023-06-30', RAND()*10000 + 10000, 'Cream', '2400 Carburettor Single Aspirated Petrol', '3 Automatic', NULL, 'QLD', 3, NULL, NULL, NULL, 'Petrol', NULL, NULL, NULL, NULL, NULL),
 ('11', 'Bentley', 'Arnage', 2001, 'Le Mans Sedan 4dr Auto 4sp 6.75T', 187100, 'Excellent', 'Bowral (NSW)', 'Dealership', 'No', '2023-09-08', RAND()*10000 + 10000, NULL, '6.75 Multi-Point Injection Turbo Petrol', '4 Le Mans Automatic', NULL, 'NSW', 3, NULL, NULL, NULL, 'Petrol', NULL, NULL, NULL, NULL, NULL),
 ('12', 'Bentley', 'Arnage', 2003, 'Series 2 R Red Label Sedan 4dr Auto 4sp 6.75TT', 43392, 'Average', 'Belmore, Sydney (NSW)', 'Auction', 'No', '2023-06-28', RAND()*10000 + 10000, 'Black', '6.75 Multi-Point Injection Turbo Petrol', '4 R Red Label Automatic', NULL, 'NSW', 3, NULL, NULL, NULL, 'Petrol', NULL, NULL, NULL, NULL, NULL);
+
+
+INSERT INTO usedcarsales (id, make, model, year, description, odometer, vehiclecondition, salelocation, salecategory, salvagevehicle, saledate, saleprice, colour, engine, transmission, states, customdate)
+VALUES ('13', 'Audi', 'A5', 2005, '8T MY10 Sportback 5dr S tronic 7sp quattro 2.0T', 323956, 'Excellent', 'Alphington (VIC)', 'Dealership', 'No', '2024-03-20', FLOOR(RAND() * (20000 - 10000 + 1)) + 10000, 'Red', '2.0 Multi-Point Injection Turbo Petrol', '7 Automatic', 'VIC', 20240320);
