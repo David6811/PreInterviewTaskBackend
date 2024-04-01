@@ -30,6 +30,11 @@ public interface UsedCarSalesRepository extends JpaRepository<UsedCarSales, Long
             criteriaBuilder.equal(root.get("model"), carSearchParameters.getModel()));
       }
 
+      if (carSearchParameters.getYear() != null) {
+        predicate = criteriaBuilder.and(predicate,
+            criteriaBuilder.equal(root.get("year"), carSearchParameters.getYear()));
+      }
+
       if (carSearchParameters.getYearFrom() != null && carSearchParameters.getYearTo() != null) {
         predicate = criteriaBuilder.and(predicate,
             criteriaBuilder.between(root.get("year"), carSearchParameters.getYearFrom(),

@@ -5,6 +5,7 @@ import java.util.Date;
 public class CarSearchParameters {
   private String maker;
   private String model;
+  private Integer year;
   private Integer yearFrom;
   private Integer yearTo;
   private Integer odometerFrom;
@@ -28,6 +29,37 @@ public class CarSearchParameters {
   private String sort;
   private String asc;
 
+  @Override
+  public String toString() {
+    return "CarSearchParameters{" +
+        "maker='" + maker + '\'' +
+        ", model='" + model + '\'' +
+        ", year=" + year +
+        ", yearFrom=" + yearFrom +
+        ", yearTo=" + yearTo +
+        ", odometerFrom=" + odometerFrom +
+        ", odometerTo=" + odometerTo +
+        ", vehicleCondition='" + vehicleCondition + '\'' +
+        ", states='" + states + '\'' +
+        ", customDate=" + customDate +
+        ", saleCategory='" + saleCategory + '\'' +
+        ", badges='" + badges + '\'' +
+        ", bodyType='" + bodyType + '\'' +
+        ", bodyTypeConfig='" + bodyTypeConfig + '\'' +
+        ", fuelType='" + fuelType + '\'' +
+        ", transmission='" + transmission + '\'' +
+        ", engine='" + engine + '\'' +
+        ", cylinders=" + cylinders +
+        ", division='" + division + '\'' +
+        ", drive='" + drive + '\'' +
+        ", seat=" + seat +
+        ", doors=" + doors +
+        ", description='" + description + '\'' +
+        ", sort='" + sort + '\'' +
+        ", asc='" + asc + '\'' +
+        '}';
+  }
+
   public String getMaker() {
     return maker;
   }
@@ -42,6 +74,14 @@ public class CarSearchParameters {
 
   public void setModel(String model) {
     this.model = model;
+  }
+
+  public Integer getYear() {
+    return year;
+  }
+
+  public void setYear(Integer year) {
+    this.year = year;
   }
 
   public Integer getYearFrom() {
@@ -218,36 +258,6 @@ public class CarSearchParameters {
 
   public void setAsc(String asc) {
     this.asc = asc;
-  }
-
-  @Override
-  public String toString() {
-    return "CarSearchParameters{" +
-        "maker='" + maker + '\'' +
-        ", model='" + model + '\'' +
-        ", yearFrom=" + yearFrom +
-        ", yearTo=" + yearTo +
-        ", odometerFrom=" + odometerFrom +
-        ", odometerTo=" + odometerTo +
-        ", vehicleCondition='" + vehicleCondition + '\'' +
-        ", states='" + states + '\'' +
-        ", customDate=" + customDate +
-        ", saleCategory='" + saleCategory + '\'' +
-        ", badges='" + badges + '\'' +
-        ", bodyType='" + bodyType + '\'' +
-        ", bodyTypeConfig='" + bodyTypeConfig + '\'' +
-        ", fuelType='" + fuelType + '\'' +
-        ", transmission='" + transmission + '\'' +
-        ", engine='" + engine + '\'' +
-        ", cylinders=" + cylinders +
-        ", division='" + division + '\'' +
-        ", drive='" + drive + '\'' +
-        ", seat=" + seat +
-        ", doors=" + doors +
-        ", description='" + description + '\'' +
-        ", sort='" + sort + '\'' +
-        ", asc='" + asc + '\'' +
-        '}';
   }
 }
 
